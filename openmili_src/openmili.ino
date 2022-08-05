@@ -9,14 +9,15 @@
 #define CE_PIN 8
 #define CSN_PIN 53
 
-RF24 radio(CE_PIN, CSN_PIN);
+// RF24 radio(CE_PIN, CSN_PIN);
+RF24 radio(12, 5, 18, 19, 23);
 PL1167_nRF24 prf(radio);
 MiLightRadio mlr(prf);
 
 void setup()
 {
   Serial.begin(115200);
-  printf_begin();
+  // printf_begin();
   delay(1000);
   Serial.println("# OpenMiLight Receiver/Transmitter starting");
   mlr.begin();
